@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="bot"></div>
+    <div class="models" th:each="person : ${people}">
+        <a th:href="@{/people/{id}(id=${person.getId()})}"
+           th:text="${person.getName() + ', ' + person.getAge()}">user</a>
+    </div>
+
+    <button class="btn">
+        <a href="http://localhost:8080/spring_jdbc_template_war_exploded/people/new">Create new person</a>
+    </button>
+    <div class="top"></div>
+</div>
+<style type="text/css">
+    .container {
+        background: linear-gradient(to right, rgba(8, 36, 36, 0.75), rgba(6, 6, 6, 0.75));
+        margin: auto;
+        align-items: center;
+        max-width: 1200px;
+
+    }
+
+    .models {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+
+    }
+
+    .bot {
+        background-color: deeppink;
+        padding: 10px;
+    }
+
+    .top {
+        background-color: deeppink;
+        padding: 10px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    a:hover {
+        color: whitesmoke;
+    }
+
+    .btn {
+        background-color: pink;
+    }
+</style>
+</body>
+</html>
